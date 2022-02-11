@@ -17,8 +17,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* typography */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: black;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: black;
+  text-decoration: none;
+}
 header {
-    padding: 5px,5px;
     border-bottom: solid #cccccc;
 }
 
@@ -27,34 +42,30 @@ section {
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 51px;
 }
 
-aside{
-    margin: 5px;
-    background-color: #287BFF;
+.container{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;   
 }
 
-.main{
-    margin: 5px;
-}
-
-article{
-    margin: 5px;
-}
-
-.box1{
+.column1{
     padding: 10px;
-    width: 50%;
     border-radius: 10px;
     background-color: #F29F05;
     color: white;
 }
 
-.box2{
+.column2{
     padding: 10px;
-    width: 50%;
     border-radius: 10px;
     background-color: #BFBFBF;
     color: white;
+}
+
+aside{
+    background-color: #287BFF;
 }

@@ -1,34 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>workbook</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="container">
-        <nav>
-          <aside class="nav navbar-nav navbar-fixed-left">
-            <li name="sports"><%= link_to "sports", "#", :style=>"color:white;" %></li></br>
-            <li name="game"><%= link_to "game", "#", :style=>"color:white;" %></li></br>
-            <li name="music"><%= link_to "music", "#", :style=>"color:white;" %></li></br>
-            <li name="art"><%= link_to "art", "#", :style=>"color:white;" %></li></br>
-            <li name="system"><%= link_to "system", "#", :style=>"color:white;" %></li></br>
-            <li name="economy"><%= link_to "economy", "#", :style=>"color:white;" %></li></br>
-            <li name="culture"><%= link_to "culture", "#", :style=>"color:white;" %></li></br>
-            <li name="beauty"><%= link_to "beauty", "#", :style=>"color:white;" %></li></br>
-            <li name="healthcare"><%= link_to "healthcare", "#", :style=>"color:white;" %></li></br>
-            <li name="relationships"><%= link_to "relationships", "#", :style=>"color:white;" %></li></br>
-            <li name="academic"><%= link_to "academic", "#", :style=>"color:white;" %></li></br>
-            <li name="life"><%= link_to "life", "#", :style=>"color:white;" %></li>
-          </aside>
-          <main class="nav navbar-nav justify-content-center">
-            <li class="box1">new contents</li>
-            <li class="box2">Last month featured</li>
-          </main>
-          <article class="nav navbar-nav navbar-right">
-            右サイド広告欄
-          </article>
-        </nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2" style="padding-left: 0px;">
+      <nav>
+        <aside class="nav navbar-nav navbar-fixed-left">
+          <ul class="list-group">
+            <li name="sports"><%= link_to "Sports", "#", :style=>"color:white;" %></li>
+            <li name="game"><%= link_to "Game", "#", :style=>"color:white;" %></li>
+            <li name="music"><%= link_to "Music", "#", :style=>"color:white;" %></li>
+            <li name="art"><%= link_to "Art", "#", :style=>"color:white;" %></li>
+            <li name="system"><%= link_to "System", "#", :style=>"color:white;" %></li>
+            <li name="economy"><%= link_to "Economy", "#", :style=>"color:white;" %></li>
+            <li name="culture"><%= link_to "Culture", "#", :style=>"color:white;" %></li>
+            <li name="beauty"><%= link_to "Beauty", "#", :style=>"color:white;" %></li>
+            <li name="healthcare"><%= link_to "Healthcare", "#", :style=>"color:white;" %></li>
+            <li name="relationships"><%= link_to "Relationships", "#", :style=>"color:white;" %></li>
+            <li name="academic"><%= link_to "Academic", "#", :style=>"color:white;" %></li>
+            <li name="life"><%= link_to "Life", "#", :style=>"color:white;" %></li>
+          </ul>
+        </aside>
+      </nav>
+    </div>
+  	<div class="col-md-4">
+  	  <div class="column1">
+      	New arrival
       </div>
-  </body>
-</html>
+  	</div>
+		<div class="col-md-4">
+	    <div class="column2">	  
+		    Last manth's feature
+		  </div>
+		</div>
+    <div class="col-md-2">
+      <article class="nav navbar-nav navbar-right">
+        右サイド広告欄
+      </article>
+    </div>
+	</div>
+</div>
