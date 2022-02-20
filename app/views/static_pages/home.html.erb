@@ -1,21 +1,92 @@
+<header class="nav navbar-default navbar-fixed-top">
+  <div class="container">
+    <%= link_to "WritePad", root_path, id: "logo" %>
+    <nav>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button type="button" class="btn btn-primary"><%= link_to "Search",   '#' %></buton></li>
+        <li><button id="myBtn" class="btn btn-primary">Sign in</button></li>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h1>Sign in</h1>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <%= form_for(:user) do |f| %>
+
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+
+                    <%= f.submit "Sign in", class: "btn btn-primary" %>
+                  <% end %>
+                  
+                  <p>If you forgot your password, <%= link_to "click here", "#" %></p>
+
+                  <p>New user? <%= link_to "Sign up now", signup_path %></p>
+                  
+                  <p>ここに[-or-]facebook、twitter、googleでのアカウントログインを作成する。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+          </script>
+        <li><button type="button" class="btn btn-primary"><%= link_to "Sign up",  '/signup' %></buton></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2" style="padding-left: 0px;">
       <nav>
         <aside class="nav navbar-nav navbar-fixed-left">
           <ul class="list-group">
-            <li name="sports"><%= link_to "Sports", "#", :style=>"color:white;" %></li>
-            <li name="game"><%= link_to "Game", "#", :style=>"color:white;" %></li>
-            <li name="music"><%= link_to "Music", "#", :style=>"color:white;" %></li>
-            <li name="art"><%= link_to "Art", "#", :style=>"color:white;" %></li>
-            <li name="system"><%= link_to "System", "#", :style=>"color:white;" %></li>
-            <li name="economy"><%= link_to "Economy", "#", :style=>"color:white;" %></li>
-            <li name="culture"><%= link_to "Culture", "#", :style=>"color:white;" %></li>
-            <li name="beauty"><%= link_to "Beauty", "#", :style=>"color:white;" %></li>
-            <li name="healthcare"><%= link_to "Healthcare", "#", :style=>"color:white;" %></li>
-            <li name="relationships"><%= link_to "Relationships", "#", :style=>"color:white;" %></li>
-            <li name="academic"><%= link_to "Academic", "#", :style=>"color:white;" %></li>
-            <li name="life"><%= link_to "Life", "#", :style=>"color:white;" %></li>
+            <% @genres.each do |genre| %>
+              <li name="<%= genre.name %>"><%= link_to genre.name, "#", :style=>"color:white;" %></li>
+              <% genre.categories.each do |category| %>
+                <%= category.name %>
+                <% category.sub_categories.each do |sub_category| %>
+                  <%= link_to sub_category.name, posts_index_path(sub_category.id) %>
+                <% end %>
+              <% end %>
+            <% end %>
           </ul>
         </aside>
       </nav>

@@ -1,2 +1,43 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<header class="nav navbar-default navbar-fixed-top">
+  <div class="container">
+    <%= link_to "WritePad", root_path, id: "logo" %>
+    <nav>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button type="button" class="btn btn-primary"><%= link_to "Search",   '#' %></buton></li>
+        <li><button type="button" class="btn btn-primary"><%= link_to "Sign in",  '#' %></buton></li>
+        <li><button type="button" class="btn btn-primary"><%= link_to "Sign up",  '/signup' %></buton></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Sign up</h1>
+    <%= form_for(@user, url: signup_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+      
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname, class: 'form-control', placeholder: "Nickame"%>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+
+      <%= f.label :password, "Password (Please input using more than 6 characters.)" %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirmation" %>
+
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
