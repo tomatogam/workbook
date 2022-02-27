@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  has_many :posts
+  has_many :post, dependent: :destroy
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
   #半角英数入力の正規表現

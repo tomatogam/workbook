@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 2022_02_26_095154) do
   create_table "posts", force: :cascade do |t|
     t.text "title"
     t.text "detail"
-    t.datetime "release"
     t.integer "sub_category_id"
+    t.integer "user_id"
+    t.datetime "release"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
