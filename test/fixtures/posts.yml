@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  detail: MyText
+  release: 2022-02-26 09:51:54
+  sub_category_id: 1
+
+two:
+  title: MyText
+  detail: MyText
+  release: 2022-02-26 09:51:54
+  sub_category_id: 1

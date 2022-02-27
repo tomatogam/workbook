@@ -4,7 +4,7 @@ before_action :logged_in_user, only: [:edit, :update]
 before_action :correct_user,   only: [:edit, :update]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(params[:id])
   end
   
   def new
@@ -15,6 +15,7 @@ before_action :correct_user,   only: [:edit, :update]
     @user = User.new(user_params)
     if @user.save
       log_in @user
+      remember user
       redirect_to root_path
     else
       render 'new'
@@ -33,7 +34,7 @@ before_action :correct_user,   only: [:edit, :update]
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please Sign in."
-      redirect_to login_url
+      redirect_to signin_url
     end
   end
   
