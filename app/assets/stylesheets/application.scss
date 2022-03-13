@@ -17,84 +17,128 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=ubunth:wght@300;400;500;700&display=swap');
-*
-{
-  margin: 0;
-  padding: 0;
+
+body {
+  margin: 0 auto;
   box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
 }
-/* typography */
 
-
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: black;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 1fr;
+  grid-template-areas:
+    "h  h   h   h"
+    "s  t   t   a"
+    "s  cl  cr  a";
+  height: 100vh;
 }
 
-#logo:hover {
-  color: black;
-  text-decoration: none;
-}
 header {
-    border-bottom: solid #cccccc;
+  grid-area: h;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 50px;
 }
 
-section {
-    overflow: auto;
+.header-button {
+  background-color: #287bff;
+  border-radius: 5px;
+  color: white;
+  margin-right: 8px;
+  padding: 6px 15px;
+  border: none;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
-body {
-    padding-top: 64px;
+aside {
+  grid-area: s;
+  background-color: #287bff;
+  list-style: none;
 }
 
-.container{
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 0px;   
+.genres {
+  padding: 10px 10px;
 }
 
-.column1{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #F29F05;
-    color: white;
+main {
+  grid-area: t;
+  display: flex;
+  justify-content: space-around;
 }
 
-.column2{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #BFBFBF;
-    color: white;
+.mainleft {
+  background-color: #f29f05;
+  width: 90vh;
+  margin: 5px 10px;
+  padding: 5px 0px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
 }
 
-aside{
-    background-color: #287BFF;
+.mainright {
+  background-color: #bfbfbf;
+  width: 90vh;
+  margin: 5px 10px;
+  padding: 5px 0px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
 }
 
-/* forms */
+.card {
+  display: grid;
+  grid-gap: 5px;
+  grid-auto-rows: 500px;
+  overflow: auto;
+}
+
+.cl {
+  grid-area: cl;
+}
+
+.cr {
+  grid-area: cr;
+}
+
+.five {
+  background: green;
+}
+.six {
+  background: indigo;
+}
+.seven {
+  background: red;
+}
+.eight {
+  background-color: aqua;
+}
+
+.advertisement {
+  grid-area: a;
+  background-color: yellow;
+}
+
+/*forms*/
 
 .row {
-    .col-md-6 {
-        padding-top: 10px;
-    }
+  .col-md-6 {
+    padding-top: 10px;
+  }
 }
 
 input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
-    width: 100%;
-    margin-bottom: 15px;
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 input {
-    height: auto !important;
+  height: auto in !important;
 }
 
 #error_explanation {

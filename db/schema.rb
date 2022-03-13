@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_095154) do
+ActiveRecord::Schema.define(version: 2022_03_12_130111) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,42 @@ ActiveRecord::Schema.define(version: 2022_02_26_095154) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_chapter_answers", force: :cascade do |t|
+    t.text "answer"
+    t.integer "post_chapter_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_chapter_contents", force: :cascade do |t|
+    t.text "content"
+    t.integer "post_chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_chapter_images", force: :cascade do |t|
+    t.binary "image"
+    t.integer "post_chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_chapter_questions", force: :cascade do |t|
+    t.text "question"
+    t.integer "question_type"
+    t.integer "post_chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_chapters", force: :cascade do |t|
+    t.text "subtitle"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -15,7 +15,7 @@ before_action :correct_user,   only: [:edit, :update]
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      remember user
+      remember @user
       redirect_to root_path
     else
       render 'new'
@@ -34,6 +34,11 @@ before_action :correct_user,   only: [:edit, :update]
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  # 管理者かどうかを確認
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def edit
