@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -18,16 +19,16 @@
       <header>
         <div class="logo"><%= link_to "woacis", root_path %></div>
         <div class="serch">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="f002; Search">
           <input type="submit" value="search">
         </div>
         <div class="header-list">
           <% if logged_in? %>
-            <button class="header-button"><%= link_to "Upload",   '#' %></button>
-            <button class="header-button"><%= link_to "My page",  show_path %></button>
+            <button class="header-button"><i class="far fa-edit"></i><%= link_to "Upload",   post_new_path, :style=>"color:white;" %></button>
+            <button class="header-button"><i class="fas fa-user"></i><%= link_to "My page",  show_path, :style=>"color:white;" %></button>
           <% else %>
-            <button class="header-button"><%= link_to "Search",   '#' %></button>
-            <button id="myBtn" class="header-button">Sign in</button>
+            <button class="header-button"><%= link_to "Search",   '#', :style=>"color:white;" %></button>
+            <button id="myBtn" class="header-button"><i class="fas fa-sign-in-alt"></i>Sign in</button>
               <!-- The Modal -->
               <div id="myModal" class="modal">
                 <!-- Modal content -->
@@ -77,7 +78,7 @@
                   }
                 }
               </script>
-            <button class="header-button"><%= link_to "Sign up",  '/signup' %></button>
+            <button class="header-button"><i class="fas fa-user-plus"></i><%= link_to "Sign up",  '/signup', :style=>"color:white;" %></button>
           <% end %>
         </div>
       </header>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_130111) do
+ActiveRecord::Schema.define(version: 2022_04_03_025615) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -19,8 +19,32 @@ ActiveRecord::Schema.define(version: 2022_03_12_130111) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.string "user_id"
+    t.string "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.string "dislike"
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "like"
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_03_12_130111) do
   end
 
   create_table "post_chapter_images", force: :cascade do |t|
-    t.binary "image"
+    t.string "image"
     t.integer "post_chapter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +93,16 @@ ActiveRecord::Schema.define(version: 2022_03_12_130111) do
     t.datetime "release"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|

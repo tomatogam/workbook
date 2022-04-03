@@ -1,0 +1,10 @@
+<div class="postcontain">
+  <%= form_for @postchap, url: chapter_create_path do |f| %>
+    <div class="postchapter">Enter title</div>
+    <%= f.text_field :subtitle, class: 'form-title'%>
+
+    <div class="PostSubmit">
+      <input type="submit" value="<%= link_to "Next" "#" %>"/>
+    </div>
+  <% end %>
+</div>

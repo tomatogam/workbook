@@ -8,12 +8,24 @@
   <div class="mainright">Featured last month</div>
 </main>
 <div class="card cl">
-  <% @categories.each do |category| %>
-    <%= category.name %>
-    <% category.sub_categories.each do |sub_category| %>
-      <%= link_to sub_category.name, "#" %>
+  <div class="postcard">
+    <% @posts.each do |post| %>
+      <div class="genrename">
+        <%= post.sub_category.category.genre.name %>
+      </div>
+      <div class="posttitle"><%= link_to post.title, "#" %></div>
+      <div class="author">Author：<%= link_to post.user.name, "#" %></div>
+      <div class="info">
+        <i class="far fa-thumbs-up"></i>
+        <i class="fas fa-thumbs-up"></i>
+        <i class="far fa-thumbs-down"></i>
+        <i class="fas fa-thumbs-down"></i>
+        <i class="far fa-comment"></i>
+        <i class="far fa-play-circle"></i>
+        <i class="fal fa-calendar-edit"></i>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
 <div class="card cr">
   <div class="five">5</div>
