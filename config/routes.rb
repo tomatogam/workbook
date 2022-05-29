@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   get     'sessions/new'
   root    'static_pages#home'
+
+  get     '/search',  to: 'searches#search', as: 'search'
+  get     '/result',  to: 'searches#result', as: 'result'
   
   get     '/signup',  to: 'users#new', as: 'signup'
   post    '/signup',  to: 'users#create'
-  get     '/edit',    to: 'users#edit'
-  get     '/show',    to: 'users#show'
+  get     '/user_edit',    to: 'users#edit', as: 'user_edit'
+  get     '/show',    to: 'users#show', as: 'user_show'
   
   get     '/signin',  to: 'sessions#new', as: 'signin'
   post    '/login',  to: 'sessions#create', as: 'login'
@@ -19,6 +22,7 @@ Rails.application.routes.draw do
   get     '/show',  to: 'posts#show', as: 'post_show'
   get     '/upload1', to: 'post_chapters#new', as: 'chapter_new'
   post    '/chaptercreate', to: 'post_chapters#create', as: 'chapter_create'
+  get     '/post_edit', to: 'posts#edit', as: 'post_edit'
   get     'post_chapters/destroy'
 
   resources :users do

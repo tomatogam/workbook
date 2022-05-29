@@ -1,6 +1,6 @@
 <aside>
   <% @genres.each do |genre| %>
-    <li class="genres"><%= link_to genre.name, "#", :style=>"color:white;" %></li>
+    <li id="genres" class="genres"><%= link_to genre.name, "#", :style=>"color:white;" %></li>
   <% end %>
 </aside>
 <main>
@@ -8,13 +8,13 @@
   <div class="mainright">Featured last month</div>
 </main>
 <div class="card cl">
-  <div class="postcard">
-    <% @posts.each do |post| %>
+  <% @posts.each do |post| %>
+    <div class="postcard">
       <div class="genrename">
         <%= post.sub_category.category.genre.name %>
       </div>
-      <div class="posttitle"><%= link_to post.title, "#" %></div>
-      <div class="author">Author：<%= link_to post.user.name, "#" %></div>
+      <div class="posttitle"><%= link_to post.title, post_show_path %></div>
+      <div class="author">Author：<%= link_to post.user.name, user_show_path %></div>
       <div class="info">
         <i class="far fa-thumbs-up"></i>
         <i class="fas fa-thumbs-up"></i>
@@ -24,8 +24,8 @@
         <i class="far fa-play-circle"></i>
         <i class="fal fa-calendar-edit"></i>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 <div class="card cr">
   <div class="five">5</div>

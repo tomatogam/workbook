@@ -1,3 +1,4 @@
-<li>
-  <%= link_to "Sign out", signout_path, method: :delete %>
-</li>
+<%= gravatar_for @user %>
+<%= @user.name %>
+
+<li><%= link_to "Sign out", signout_path, method: :delete %></li>
